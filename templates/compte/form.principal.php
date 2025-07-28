@@ -16,7 +16,7 @@
                                     id="numeroCNI"
                                     class="w-full px-4 py-3 border border-gray-400 rounded-lg focus:ring-2 focus:ring-orange-200 focus:border-orange-500 focus:outline-none transition-colors"
                                     placeholder="Entrez le numéro CNI et appuyez sur Entrée">
-                                <div id="loading" class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden mt-[100px]">
+                                <div id="loading" class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden mt-[50px]">
                                     <svg class="animate-spin h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="black" viewBox="0 0 24 24">
                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
