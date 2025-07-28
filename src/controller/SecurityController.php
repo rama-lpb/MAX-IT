@@ -122,7 +122,7 @@ public function createComptePrincipal() {
     }
 
     $this->layout = 'security';
-    $this->render("compte/form.principal.php" , ['compte' => $result]);
+    $this->render("compte/form.principal.php" , ['compte' => $this->securityService->creerComptePrincipal($userData , $cni)]);
 }
 
 
