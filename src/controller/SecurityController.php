@@ -57,7 +57,7 @@ class SecurityController extends AbstractController{
         $user = $this->securityService->seConnecter($loginData['login'], $loginData['password']);  
          if($user){
              $this->session->set("user", $user->toArray());
-            header("Location:". APP_URL. "/compte");
+            header("Location: /compte");
             exit();
          }else{
             $this->validator->addError('password', "Identifiant incorrect");
@@ -114,7 +114,7 @@ public function createComptePrincipal() {
  */        if ($result === true) {
 
 
-            header("Location: " . APP_URL . "/");
+            header("Location: /");
             exit;
         } else {
            $err = $this->session->set('errors', ['compte' => $result]);

@@ -37,7 +37,7 @@
             Ce compte deviendra votre compte principal
         </p>
         
-        <form method="POST" action="<?= APP_URL ?>/changerEnComptePrincipal">
+        <form method="POST" action="/changerEnComptePrincipal">
             <input type="hidden" id="compteIdInput" name="compteId" value="">
             <button 
                 type="submit" 

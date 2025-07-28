@@ -96,14 +96,14 @@ public function createCompteSecondaire() {
              $errors = $this->validator->validate($data, $rules);
             if (!$errors) {
                 $this->session->set('errors', $errors);
-                header("Location: " . APP_URL . "/compteSecondaire");
+                header("Location: /compteSecondaire");
                 exit;
             }
 
             $userId = $this->session->get('user', 'id');
             if (!$userId) {
                 $this->session->set('errors', ['general' => 'Utilisateur non connecté']);
-                header("Location: " . APP_URL . "/compteSecondaire");
+                header("Location: /compteSecondaire");
                 exit;
             }
 
@@ -113,20 +113,20 @@ public function createCompteSecondaire() {
             $result = $this->compteService->creerCompteSecondaire($userId, $numeroTel, $soldeInitial);
             if ($result) {
                 $this->session->set('success', 'Compte secondaire créé avec succès !');
-                header("Location: " . APP_URL . "/compte");
+                header("Location: /compte");
                 exit;
             } else {
                 $this->session->set('errors', ['general' => $result]);
-                header("Location: " . APP_URL . "/compteSecondaire");
+                header("Location: /compteSecondaire");
                 exit;
             }
         } catch (\Exception $e) {
             $this->session->set('errors', ['general' => 'Erreur interne: ' . $e->getMessage()]);
-            header("Location: " . APP_URL . "/compteSecondaire");
+            header("Location: /compteSecondaire");
             exit;
         }
     }
-    header("Location: " . APP_URL . "/compteSecondaire");
+    header("Location: /compteSecondaire");
     exit;
 }
 
