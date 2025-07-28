@@ -1,68 +1,72 @@
-                <div class="flex  justify-beetween gap-6 mb-8">
-                    <div class="bg-[#F4F4F4] w-[50%] rounded-xl p-6 border-2 shadow-sm">
-                        <div class="flex items-center justify-between gap-5">
-                            <div class="flex items-center">
-                                <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mr-4">
-                                   <img src="./assets/icons/solde.svg" alt="solde icon"  class="h-15 w-15">                                
-                                </div>
-                                <div>
-                                    <div class="text-3xl font-bold text-gray-800"><?=  $this->session->get('comptes','solde')  ?> CFA</div>
-                                    <div class="text-gray-600 font-medium">Solde de mon Compte principal</div>
-                                </div>
-                            </div>
-                            <div class="w-32 h-32 bg-orange-maxit rounded-xl flex items-center justify-center border-2 border-orange-600">
-                                <img src="./assets/images/qrcode.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                   <div class="self-center">
-                    <input type="text" class="w-full rounded-xl p-4 border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-maxit" placeholder="Entrer le numéro de compte">
-                   </div>
-                   <div class="self-center"> 
-                    <a href="/compteSecondaire">
-                    <button  class="p-3 bg-[#F4F4F4] rounded-xl shadow-sm flex gap-2">
-                        <img src="./assets/icons/addacount.svg" alt="add icon" class="w-7 h-7">
-                    Creer un Compte  secondaire
-                    </button>
-                    </a>
-                   </div>
-                   <div class="self-center">
-                    <a href="/listComptes">
-                    <button class="p-3 bg-[#F4F4F4] flex gap-2 rounded-xl shadow-sm ">
-                        <img src="./assets/icons/changer.svg" alt="add icon" class="w-7 h-7">
-                        Changer de  compte
-                    </button>
-                    </a>
-                   </div>
-                    
+<div class="flex justify-between gap-6 mb-[80px]">
+    <div class=" w-[45%] rounded-xl p-5 border border-gray-200 shadow-sm bg-gray-700 h-[140px]">
+        <div class="flex items-center justify-between ">
+            <div class="flex items-center ">
+                <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 ">
+                    <img src="./assets/icons/solde.svg" alt="solde icon" class="h-8 w-8">
                 </div>
-
-                
-                <div class="bg-white rounded-xl p-6 border border-orange-200 shadow-sm">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-lg font-semibold text-gray-800">10 dernières transactions</h2>
-                      <a href="/listTransactions">  <button class="text-gray-600 hover:text-orange-maxit transition-colors">Voir plus</button> </a>
-                    </div>
-                    
-                    <div class="grid grid-cols-5 gap-4">
-                        <?php foreach($transactions as $transaction): ?>
-                        <div class="bg-gray-100 rounded-xl p-4 text-center">
-                            <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center mx-auto mb-3">
-                                <img src="./images/design/transfert.png" alt="arrow-up" class="w-8 h-8">
-                            </div>
-                            <div class="font-medium text-sm text-gray-800 mb-1"><?= $transaction['typetransaction'] ?></div>
-                            <div class="text-orange-maxit font-bold text-sm"><?= $transaction['montant'] ?> CFA</div>
-                            <div class="text-xs text-gray-500 mt-1"><?= $transaction['datetransaction'] ?></div>
-                        </div>
-                        
-                        
-                        <?php endforeach; ?>
-                    </div>
-                    
-                    
+                <div>
+                    <div class="text-2xl font-bold text-white"><?= $this->session->get('comptes','solde') ?> CFA</div>
+                    <div class="text-white text-sm font-medium">Solde principal</div>
                 </div>
-            </main>
+            </div>
+            <!-- QR Code plus petit -->
+            <div class="w-20 h-20 bg-gray-900 rounded-xl flex items-center justify-center border border-gray-200">
+                <img src="./assets/images/qrcode.png" alt="QR Code" class="w-16 h-16">
+            </div>
         </div>
     </div>
+    
+    <!-- Actions rapides regroupées -->
+    <div class="flex-1 grid grid-cols-1 gap-3">
+        <!-- Barre de recherche -->
+        <div>
+            <input type="text" 
+                   class="w-full rounded-xl p-3 border border-gray-200  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white shadow-lg" 
+                   placeholder="Numéro de compte">
+        </div>
+        
+        <!-- Boutons d'action -->
+        <div class="flex gap-3">
+            <a href="/compteSecondaire" class="flex-1">
+                <button class="w-full p-3 bg-gray-200 hover:bg-gray-100 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors">
+                    <img src="./assets/icons/addacount.svg" alt="add icon" class="w-5 h-5">
+                    <span class="text-sm font-medium">Créer compte</span>
+                </button>
+            </a>
+            
+            <a href="/listComptes" class="flex-1">
+                <button class="w-full p-3 bg-gray-200 hover:bg-gray-100 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors">
+                    <img src="./assets/icons/changer.svg" alt="changer icon" class="w-5 h-5">
+                    <span class="text-sm font-medium">Changer compte</span>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
 
-  
+<!-- Section des transactions -->
+<div class="bg-white rounded-xl p-6 border border-gray-200 shadow-lg">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-gray-800">Dernières transactions</h2>
+        <a href="/listTransactions">
+            <button class="text-blue-600 hover:text-blue-700 font-medium transition-colors">
+                Voir plus →
+            </button>
+        </a>
+    </div>
+    
+    <!-- Grille des transactions - plus responsive -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <?php foreach($transactions as $transaction): ?>
+        <div class="bg-gray-50 hover:bg-gray-100 rounded-xl p-4 text-center transition-colors cursor-pointer">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm">
+                <img src="./images/design/transfert.png" alt="transaction" class="w-6 h-6">
+            </div>
+            <div class="font-medium text-sm text-gray-800 mb-1"><?= $transaction['typetransaction'] ?></div>
+            <div class="text-blue-600 font-bold text-sm"><?= $transaction['montant'] ?> CFA</div>
+            <div class="text-xs text-gray-500 mt-1"><?= date('d/m', strtotime($transaction['datetransaction'])) ?></div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>

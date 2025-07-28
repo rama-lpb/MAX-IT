@@ -22,7 +22,7 @@
                             </div>
                             <div>
                                 <div class="font-bold text-gray-800"><?= $this->session->get('user', 'prenom')  .' ' . $this->session->get('user', 'nom')?></div>
-                                <div class="text-sm text-gray-600"><?=  $this->session->get('comptes', 'numero') ?></div>
+                                <div class="text-sm text-gray-500"><?=  $this->session->get('comptes', 'numero') ?></div>
                             </div>
                         </div>
                     </div>

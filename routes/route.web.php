@@ -89,6 +89,17 @@ $routes = [
     'method' => 'annuler',
     'middlewares' => ['auth']
 ],
+'/transaction/paiement' => [
+    'controller' => TransactionController::class,
+    'method' => 'renderWoyofal',
+    'middlewares' => [/* 'auth' */]
+],
+
+ '/transaction/wofoyal/paie' => [
+    'controller' => TransactionController::class,
+    'method' => 'WoyofalPaie',
+    'middlewares' => [/* 'auth' */]
+],
 
 // ],
 // '/search-transactions' => [

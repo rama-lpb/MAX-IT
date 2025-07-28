@@ -20,21 +20,21 @@
         }
     </script>
 </head>
-<body class="bg-gray-100 font-sans">
-      <div class="flex h-screen bg-white">
+<body class="font-sans flex flex-col justify-center items-center border border-black">
+      <div class="flex h-screen bg-white w-full h-full  overflow-x-auto rounded-lg shadow-xl bg-gray-200	">
          
     <?php require_once '../templates/layout/partial/leftbar.php'; ?>
         
         <div class="flex-1 flex flex-col">
     <?php require_once '../templates/layout/partial/header.html.php'; ?>
-        <div class="grid grid-cols-5 gap-16 m-8">
-                    <div class="bg-orange-maxit rounded-3xl h-28 shadow-sm"></div>
-                    <div class="bg-orange-maxit rounded-3xl h-28 shadow-sm"></div>
-                    <div class="bg-orange-maxit rounded-3xl h-28 shadow-sm"></div>
-                    <div class="bg-orange-maxit rounded-3xl h-28 shadow-sm"></div>
+        <div class=" w-[1600px] grid grid-cols-4 mt-[40px] ml-[40px] gap-16  mb-[40px] ">
+                    <div class="bg-gray-100 rounded-3xl h-28 shadow-lg "></div>
+                    <div class="bg-gray-100 rounded-3xl h-28 shadow-lg"></div>
+                    <div class="bg-gray-100 rounded-3xl h-28 shadow-lg"></div>
+                    <div class="bg-gray-100 rounded-3xl h-28 shadow-lg"></div>
                 </div>
             
-    <main class="flex-1 p-6 bg-gray-5">
+    <main class="flex-1 p-6 ">
     <?php echo $contentForLayout ?>
 </body>
 </html>

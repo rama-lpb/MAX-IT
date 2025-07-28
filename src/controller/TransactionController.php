@@ -31,7 +31,7 @@ class TransactionController extends AbstractController{
     public function create(){
         $comptesClient = $this->compteService->comptesClient($this->session->get('user', 'id'));
         $allComptes = $this->compteService->allComptes();
-        $this->render('transaction/form.php', [
+        $this->render('transaction/operations.php', [
             'comptesClient' => $comptesClient,
             'allComptes' => $allComptes,
         ]);
@@ -192,5 +192,14 @@ public function annuler() {
     exit;
 }
 
+public function renderWoyofal (){
+        $comptes = $this->compteService->comptePrincipalClient($this->session->get('user', 'id'));
+        $this->render('transaction/paiement.php' , ['comptes' => $comptes]);
 
+}
+
+public function WoyofalPaie(){
+ 
+echo 'kaye faye';
+}
 }
