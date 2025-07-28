@@ -31,7 +31,7 @@
             </nav>
             
             <div class="p-4 flex flex-col items-center mt-10">
-                <a href="logout">
+                <a href="/logout">
                 <button class="flex items-center  justify-center bg-orange-maxit text-white rounded-2xl py-4 h-[50px] w-[80px] font-medium hover:bg-orange-600 transition-colors ">
                     <img src="./assets/icons/logout.svg" alt="logout" class="w-5 h-5 ">
                 </button>
