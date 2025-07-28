@@ -40,9 +40,9 @@ class SecurityService extends Singleton{
 
    public function creerComptePrincipal(array $data ){
    
-        $cni = $_POST['numeroCNI'];
-        $login = $_POST['login'];
-        $password = $_POST['password'];
+        $cni = $_POST['numeroCNI'] ?? null;
+        $login = $_POST['login'] ?? null;
+        $password = $_POST['password'] ?? null;
        
         $fetcher = new DataFetch($cni, $login, $password);
 
@@ -52,7 +52,7 @@ class SecurityService extends Singleton{
      echo "</pre>"; 
      die ; */
 
-        $existingNumero = $this->telephoneRepository->findByNumero( $userData['data']['telephone'] );
+        $existingNumero = $this->telephoneRepository->findByNumero( $userData['data']['telephone'] ?? null);
         if ($existingNumero) {
             return "Ce numéro de téléphone est déjà associé à un compte.";
         }
