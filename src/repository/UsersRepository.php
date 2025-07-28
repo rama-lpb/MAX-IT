@@ -28,14 +28,14 @@ class UsersRepository extends AbstractRepository{
 
 
     public function insert(array $data) {
-       /*  echo "<pre>";
+      echo "<pre>";
         print_r($data);
         echo "</pre>";
-        die; */
+    
     try {
         $sql = "INSERT INTO $this->table 
             (nom, prenom, login, password, typeuserid, adresse, numerocni, photorecto, photoverso, date_naissance) 
-            VALUES (:nom, :prenom, :login, :password, :typeuserid, :adresse, :numero_cni, :photorecto, :photoverso, :date_naissance)";
+            VALUES (:nom, :prenom, :login, :password, :typeuserid, :adresse, :numerocni, :photorecto, :photoverso, :date_naissance)";
 
         $stmt = $this->pdo->prepare($sql);
 
@@ -46,7 +46,7 @@ class UsersRepository extends AbstractRepository{
             'password' => $data['password'],
             'typeuserid' => 1,
             'adresse' => $data['lieu_naissance'] ?? null,
-            'numero_cni' => $data['cni'] ?? null,
+            'numerocni' => $data['cni'] ?? null,
             'photorecto' => $data['photorecto'],
             'photoverso' => $data['photoverso'],
             'date_naissance' => $data['date_naissance'],
